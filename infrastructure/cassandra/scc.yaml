@@ -18,3 +18,5 @@ readOnlyRootFilesystem: false
 users:
 - system:serviceaccount:cassandra-system:cassandra-operator
 - system:serviceaccount:cassandra-system:default
+- system:serviceaccount:datastores:default
+- system:serviceaccount:rook-ceph:default
