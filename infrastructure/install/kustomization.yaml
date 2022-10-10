@@ -9,5 +9,5 @@ resources:
  # - zookeeper.yaml
  # - clickhouse.yaml
  # - kafka.yaml
- # - cassandra.yaml
+  - cassandra.yaml
  # - instana.yaml
