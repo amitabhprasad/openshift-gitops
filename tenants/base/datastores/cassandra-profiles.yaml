@@ -1,0 +1,47 @@
+---
+apiVersion: cassandra.datastax.com/v1beta1
+kind: CassandraDatacenter
+metadata:
+  name: cassandra-profiles
+  namespace: datastores
+spec:
+  clusterName: instana-profiles
+  serverType: cassandra
+  serverVersion: "4.0.3"
+  managementApiAuth:
+    insecure: {}
+  size: 1
+  allowMultipleNodesPerWorker: true
+  # nodeSelector:
+  #   "instana.io/pool": "cassandra"
+  resources:
+    requests:
+      cpu: 500m
+      memory: 4Gi
+    limits:
+      cpu: 1
+      memory: 8Gi
+  storageConfig:
+    cassandraDataVolumeClaimSpec:
+      accessModes:
+        - ReadWriteOnce
+      resources:
+        requests:
+          storage: 10Gi
+  config:
+    jvm-server-options:
+      initial_heap_size: "2G"
+      max_heap_size: "2G"
+      additional-jvm-opts:
+        - -Dcassandra.allow_unsafe_aggressive_sstable_expiration=true
+    cassandra-yaml:
+      authenticator: org.apache.cassandra.auth.AllowAllAuthenticator
+      authorizer: org.apache.cassandra.auth.AllowAllAuthorizer
+      role_manager: org.apache.cassandra.auth.CassandraRoleManager
+      memtable_flush_writers: 8
+      auto_snapshot: false
+      gc_warn_threshold_in_ms: 10000
+      otc_coalescing_strategy: DISABLED
+      memtable_allocation_type: offheap_objects
+      num_tokens: 256
+      enable_drop_compact_storage: true

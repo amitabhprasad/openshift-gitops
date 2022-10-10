@@ -10,4 +10,4 @@ resources:
  # - clickhouse.yaml
  # - kafka.yaml
   - cassandra.yaml
- # - instana.yaml
+  - instana.yaml

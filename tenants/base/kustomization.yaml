@@ -1,0 +1,20 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+metadata:
+  name: infrastructure
+resources:
+  - ./datastores/namespace.yaml
+  #- ./datastores/es-instana-admin.enc.yaml
+  #- ./datastores/elasticsearch.yaml
+  #- ./datastores/zookeeper-kafka.yaml
+  #- ./datastores/kafka.yaml
+  #- ./datastores/zookeeper-application.yaml
+  #- ./datastores/clickhouse-application.yaml
+  - ./datastores/cassandra-spans.yaml
+  - ./datastores/cassandra-profiles.yaml
+  - ./datastores/cassandra-metrics.yaml
+  - ./datastores/cassandra-state.yaml
+  #- ./core/instana-registry.enc.yaml
+ # - ./core/instana-tls.enc.yaml
+ # - ./units/instana-registry.enc.yaml

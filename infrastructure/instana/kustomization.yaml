@@ -1,0 +1,25 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+metadata:
+  name: instana-install
+resources:
+  - namespaces.yaml
+  # - instana-registry.enc.yaml
+  # - certificate_instana-operator_instana-operator-webhook.yaml
+  # - clusterrole__instana-operator-webhook.yaml
+  # - clusterrole__instana-operator.yaml
+  # - clusterrolebinding__instana-operator-webhook.yaml
+  # - clusterrolebinding__instana-operator.yaml
+  # - customresourcedefinition__cores.instana.io.yaml
+  # - customresourcedefinition__datastores.instana.io.yaml
+  # - customresourcedefinition__units.instana.io.yaml
+  # - deployment_instana-operator_instana-operator-webhook.yaml
+  # - deployment_instana-operator_instana-operator.yaml
+  # - issuer_instana-operator_instana-operator-webhook.yaml
+  # - role_instana-operator_instana-operator-leader-election.yaml
+  # - rolebinding_instana-operator_instana-operator-leader-election.yaml
+  # - service_instana-operator_instana-operator-webhook.yaml
+  # - serviceaccount_instana-operator_instana-operator-webhook.yaml
+  # - serviceaccount_instana-operator_instana-operator.yaml
+  # - validatingwebhookconfiguration__instana-operator-webhook-validating.yaml
