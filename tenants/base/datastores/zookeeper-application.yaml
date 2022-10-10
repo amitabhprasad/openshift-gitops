@@ -6,7 +6,7 @@ metadata:
   namespace: datastores
 spec:
   replicas: 1
-  pod:
+  #pod:
     # affinity:
     #   nodeAffinity:
     #     requiredDuringSchedulingIgnoredDuringExecution:
