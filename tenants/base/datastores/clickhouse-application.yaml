@@ -1,0 +1,86 @@
+apiVersion: clickhouse.altinity.com/v1
+kind: ClickHouseInstallation
+metadata:
+  name: clickhouse-application
+  namespace: datastores
+spec:
+  defaults:
+    templates:
+      dataVolumeClaimTemplate: data-volume-template
+      logVolumeClaimTemplate: log-volume-template
+  configuration:
+    files:
+      config.d/storage.xml: |
+        <clickhouse>
+          <storage_configuration>
+            <disks>
+              <default/>
+            </disks>
+            <policies>
+              <logs_policy>
+                <volumes>
+                  <data>
+                    <disk>default</disk>
+                  </data>
+                </volumes>
+              </logs_policy>
+            </policies>
+          </storage_configuration>
+        </clickhouse>
+    clusters:
+      - name: local
+        templates:
+          podTemplate: clickhouse
+        layout:
+          shardsCount: 1
+          replicasCount: 2
+    zookeeper:
+      nodes:
+        - host: zookeeper-application-headless.datastores
+    profiles:
+      default/max_memory_usage: 10000000000
+      default/joined_subquery_requires_alias: 0
+      default/max_execution_time: 100
+      default/max_query_size: 1048576
+      default/use_uncompressed_cache: 0
+      default/load_balancing: random
+      default/background_pool_size: 32
+      default/background_schedule_pool_size: 32
+    quotas:
+      default/interval/duration: 3600
+      default/interval/queries: 0
+      default/interval/errors: 0
+      default/interval/result_rows: 0
+      default/interval/read_rows: 0
+      default/interval/execution_time: 0
+    users:
+      default/networks/ip: "::/0"
+
+  templates:
+    podTemplates:
+      - name: clickhouse
+        spec:
+          imagePullSecrets:
+            - name: all-icr-io
+          containers:
+            - name: instana-clickhouse
+              image: "icr.io/clickhouse/clickhouse:22.4.5.9-1-stable-ibm"
+              volumeMounts:
+                - mountPath: /etc/clickhouse-server/users.xml
+                  name: users-xml
+                  subPath: users.xml
+    volumeClaimTemplates:
+      - name: data-volume-template
+        spec:
+          accessModes:
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: 128Gi
+      - name: log-volume-template
+        spec:
+          accessModes:
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: 100Mi

@@ -10,7 +10,7 @@ resources:
   - ./datastores/zookeeper-kafka.yaml
   - ./datastores/kafka.yaml
   - ./datastores/zookeeper-application.yaml
-  #- ./datastores/clickhouse-application.yaml
+  - ./datastores/clickhouse-application.yaml
   - ./datastores/cassandra-spans.yaml
   - ./datastores/cassandra-profiles.yaml
   - ./datastores/cassandra-metrics.yaml
