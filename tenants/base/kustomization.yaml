@@ -15,6 +15,7 @@ resources:
   - ./datastores/cassandra-profiles.yaml
   - ./datastores/cassandra-metrics.yaml
   - ./datastores/cassandra-state.yaml
+  - ./datastores/users-xml
   #- ./core/instana-registry.enc.yaml
  # - ./core/instana-tls.enc.yaml
  # - ./units/instana-registry.enc.yaml
