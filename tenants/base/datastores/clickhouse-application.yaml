@@ -69,6 +69,10 @@ spec:
                 - mountPath: /etc/clickhouse-server/users.xml
                   name: users-xml
                   subPath: users.xml
+          volumes:
+            - configMap:
+                name: users-xml
+              name: users-xml
     volumeClaimTemplates:
       - name: data-volume-template
         spec:
