@@ -11,3 +11,4 @@ resources:
   - kafka.yaml
   - cassandra.yaml
   - instana.yaml
+  - cockroach.yaml
