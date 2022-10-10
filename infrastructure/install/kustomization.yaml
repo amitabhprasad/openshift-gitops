@@ -8,6 +8,6 @@ resources:
   - cert-manager.yaml
   - zookeeper.yaml
   - clickhouse.yaml
-  #- kafka.yaml
+  - kafka.yaml
   - cassandra.yaml
   - instana.yaml
