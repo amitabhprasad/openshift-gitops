@@ -6,13 +6,13 @@ metadata:
   namespace: datastores
 spec:
   version: 7.16.2
-  auth:
-    fileRealm:
-      - secretName: es-instana-admin
-  http:
-    tls:
-      selfSignedCertificate:
-        disabled: true
+  # auth:
+  #   fileRealm:
+  #     - secretName: es-instana-admin
+  # http:
+  #   tls:
+  #     selfSignedCertificate:
+  #       disabled: true
   nodeSets:
     - name: masters
       count: 1
@@ -50,7 +50,7 @@ spec:
             resources:
               requests:
                 storage: 50Gi
-            storageClassName: standard
+            storageClassName: rook-ceph-block
     - name: data
       count: 2
       config:

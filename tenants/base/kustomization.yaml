@@ -6,7 +6,7 @@ metadata:
 resources:
   - ./datastores/namespace.yaml
   # - ./datastores/es-instana-admin.enc.yaml
-  # - ./datastores/elasticsearch.yaml
+  - ./datastores/elasticsearch.yaml
   - ./datastores/zookeeper-kafka.yaml
   - ./datastores/kafka.yaml
   - ./datastores/zookeeper-application.yaml
