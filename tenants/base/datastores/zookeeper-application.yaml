@@ -1,0 +1,24 @@
+---
+apiVersion: zookeeper.pravega.io/v1beta1
+kind: ZookeeperCluster
+metadata:
+  name: zookeeper-application
+  namespace: datastores
+spec:
+  replicas: 1
+  pod:
+    # affinity:
+    #   nodeAffinity:
+    #     requiredDuringSchedulingIgnoredDuringExecution:
+    #       nodeSelectorTerms:
+    #         - matchExpressions:
+    #           - key: "instana.io/pool"
+    #             operator: In
+    #             values:
+    #               - "zookeeper"
+    #   podAntiAffinity:
+    #     requiredDuringSchedulingIgnoredDuringExecution:
+    #       - labelSelector:
+    #           matchLabels:
+    #             kind: ZookeeperMember
+    #         topologyKey: kubernetes.io/hostname 

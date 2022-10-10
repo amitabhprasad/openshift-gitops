@@ -1,0 +1,90 @@
+---
+apiVersion: elasticsearch.k8s.elastic.co/v1
+kind: Elasticsearch
+metadata:
+  name: elasticsearch
+  namespace: datastores
+spec:
+  version: 7.16.2
+  auth:
+    fileRealm:
+      - secretName: es-instana-admin
+  http:
+    tls:
+      selfSignedCertificate:
+        disabled: true
+  nodeSets:
+    - name: masters
+      count: 1
+      config:
+        node.roles: ['master']
+        node.store.allow_mmap: false
+        xpack.security.authc:
+          anonymous:
+            username: anonymous
+            roles: superuser
+            authz_exception: false
+      podTemplate:
+        spec:
+          # affinity:
+          #   nodeAffinity:
+          #     requiredDuringSchedulingIgnoredDuringExecution:
+          #       nodeSelectorTerms:
+          #         - matchExpressions:
+          #           - key: "instana.io/pool"
+          #             operator: In
+          #             values:
+          #               - "elasticsearch"
+          #   podAntiAffinity:
+          #     requiredDuringSchedulingIgnoredDuringExecution:
+          #       - labelSelector:
+          #           matchLabels:
+          #             elasticsearch.k8s.elastic.co/cluster-name: es-global-heliconia
+          #         topologyKey: kubernetes.io/hostname            
+      volumeClaimTemplates:
+        - metadata:
+            name: elasticsearch-data
+          spec:
+            accessModes:
+            - ReadWriteOnce
+            resources:
+              requests:
+                storage: 50Gi
+            storageClassName: standard
+    - name: data
+      count: 2
+      config:
+        node.roles: ['data']
+        node.store.allow_mmap: false
+        xpack.security.authc:
+          anonymous:
+            username: anonymous
+            roles: superuser
+            authz_exception: false
+      podTemplate:
+        spec:
+          # affinity:
+          #   nodeAffinity:
+          #     requiredDuringSchedulingIgnoredDuringExecution:
+          #       nodeSelectorTerms:
+          #         - matchExpressions:
+          #           - key: "instana.io/pool"
+          #             operator: In
+          #             values:
+          #               - "elasticsearch"
+          #   podAntiAffinity:
+          #     requiredDuringSchedulingIgnoredDuringExecution:
+          #       - labelSelector:
+          #           matchLabels:
+          #             elasticsearch.k8s.elastic.co/cluster-name: es-global-heliconia
+          #         topologyKey: kubernetes.io/hostname
+      volumeClaimTemplates:
+        - metadata:
+            name: elasticsearch-data
+          spec:
+            accessModes:
+            - ReadWriteOnce
+            resources:
+              requests:
+                storage: 500Gi
+            storageClassName: standard

@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Secret
+type: kubernetes.io/basic-auth
+metadata:
+    name: es-instana-admin
+    namespace: datastores
+stringData:
+    username: ENC[AES256_GCM,data:+78Uz5sztg==,iv:WAnTNibG1J+SSazrJwmcHYdAnQP13WTc/C5IS7F52y0=,tag:FFi8qLqgWUoDYlxjMkY88w==,type:str]
+    password: ENC[AES256_GCM,data:RD6FDfZ1jkE=,iv:FIQ44WaDDaVAK1Fxrqu6rBUvTbtNxW04QYmXdPLyCmc=,tag:y7d6eIJFyxH7NN5UcCii0A==,type:str]
+    roles: ENC[AES256_GCM,data:Gagxr52/fSlv,iv:H2fqa3q+UHLwT7u4tCnXgE+Jhj/5uTLWSm//bGtD3So=,tag:gPssCm8RYNjcPrOPZ5UpOw==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1ek6qsfk8aynr3h6jz96rk8zhe3jzz2rtc88hx3zndsxxhqwulvssn6rs5j
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBKUC9xTTdldExkMXdHYXBQ
+            MUZNdDJzZWJIT0NUWTZ5TXQ4U1BmWHZaU1Z3ClIzL0Vwb3ZWb0pDUXhJTThLS1k3
+            ZmpaSStZZmRLWWJXeTRiU0ZUWTNvbGsKLS0tIFdBdUVTVkFaUlhYYXFudE15ZEVU
+            RkFRSTViemU2Tm1NRkl4OVozTy9WbU0K0GG/E7A6S7UKpegXun6jnH/a1Bs/L9dy
+            d1AisnDU3ZnnCLilgpu4HoIshRYjR6uVaJwJdwlQoCHbUHzna/6FmA==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2022-10-05T11:00:29Z"
+    mac: ENC[AES256_GCM,data:DtHH1J7Mom3qd7Ruz7xoGr5gBywmqMvxdDTQfIHABFYwpWJdYrGLzs/Rdm5H4oe4yAuRiAO5AjtRkAlOs23JMQpsNBvqBsq3qPwcmKdxrWdMfAL/w8N06sMtiRh5dKe9CWxUoPbm0aUx8CCLzqW1CnNoIQf+ZwEK7oLwUWJu/ls=,iv:KsMREYXBfPG5x5XbNgsMBYHOX0BF+16fNwI95qvEPh0=,tag:nI4hDz3OXx6Ji3JAaNOrQA==,type:str]
+    pgp: []
+    encrypted_regex: ^(data|stringData)$
+    version: 3.7.3
