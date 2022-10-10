@@ -1,0 +1,20 @@
+apiVersion: security.openshift.io/v1
+kind: SecurityContextConstraints
+metadata:
+  name: cassandra-scc
+runAsUser:
+  type: RunAsAny
+seLinuxContext:
+  type: RunAsAny
+fsGroup:
+  type: RunAsAny
+allowHostDirVolumePlugin: false
+allowHostNetwork: true
+allowHostPorts: true
+allowPrivilegedContainer: true
+allowHostIPC: true
+allowHostPID: true
+readOnlyRootFilesystem: false
+users:
+- system:serviceaccount:cassandra-system:cassandra-operator
+- system:serviceaccount:cassandra-system:default
