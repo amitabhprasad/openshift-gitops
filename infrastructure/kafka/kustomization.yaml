@@ -4,6 +4,7 @@ kind: Kustomization
 metadata:
   name: kafka
 resources:
-  #- kafka-operator.crds.yaml
+  - strimzi-crds-0.31.1.yaml
+  - kafka-operator.crds.yaml
   - repository.yaml
   - helm.yaml
