@@ -6,4 +6,4 @@ metadata:
 resources:
   - namespace.yaml
   - clickhouse-operator.yaml
-  - all-icr-io.enc.yaml
+  #- all-icr-io.enc.yaml
