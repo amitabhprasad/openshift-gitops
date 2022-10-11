@@ -3,7 +3,7 @@ apiVersion: kafka.strimzi.io/v1beta2
 kind: Kafka
 metadata:
   name: kafka
-  namespace: datastores
+  namespace: kafka-system
 spec:
   kafka:
     version: 3.1.0
