@@ -20,6 +20,7 @@ spec:
       name: sops-key
   postBuild:
     substitute:
+      cluster_env: "prod"
     substituteFrom:
       - name: region-config
         kind: ConfigMap
