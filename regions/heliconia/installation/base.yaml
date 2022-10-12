@@ -8,8 +8,6 @@ spec:
   interval: 5m0s
   path: ./regions/base
   prune: true
-  dependsOn:
-    - name: infrastructure
   sourceRef:
     kind: GitRepository
     name: flux-system
@@ -19,8 +17,6 @@ spec:
     secretRef:
       name: sops-key
   postBuild:
-    substitute:
-      cluster_env: "prod"
     substituteFrom:
       - name: region-config
         kind: ConfigMap
