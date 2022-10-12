@@ -20,6 +20,8 @@ spec:
         app.kubernetes.io/name: instana
         app.kubernetes.io/version: 233-0
     spec:
+      imagePullSecrets:
+        - name: instana-registry
       containers:
         - args:
             - /app/instana-operator
