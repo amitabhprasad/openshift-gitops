@@ -4,6 +4,8 @@ kind: Secret
 metadata:
   name: instana-registry
   namespace: instana-core
-stringData: 
-  .dockerconfigjson: |
-    ${var:=registryConfiguration}
+# stringData: 
+#   .dockerconfigjson: |
+#     ${registryConfiguration}
+  stringData:
+    registryConfiguration: ${registryConfiguration}
