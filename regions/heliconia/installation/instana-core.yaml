@@ -6,9 +6,9 @@ metadata:
   namespace: instana-core
 spec:
   agentAcceptorConfig:
-    host: ingress-heliconia.instanatest.rocks
-    port: 30950
-  baseDomain: instanatest.rocks
+    host: agent.apps.dimes.cp.fyre.ibm.com
+    port: 443
+  baseDomain: apps.dimes.cp.fyre.ibm.com
   componentConfigs:
     - name: acceptor
       replicas: 1
@@ -67,8 +67,6 @@ spec:
       hosts:
         - elasticsearch-es-http.datastores
       ports:
-        - name: tcp
-          port: 9300
         - name: http
           port: 9200
       clusterName: onprem_onprem
@@ -93,6 +91,8 @@ spec:
         ports:
           - name: tcp
             port: 26257
+          - name: tcp
+            port: 26258
   emailConfig:
     smtpConfig:
       from: heliconia@instanatest.rocks

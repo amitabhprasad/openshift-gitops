@@ -7,5 +7,5 @@ resources:
   - region-config.yaml
   - region-secrets.enc.yaml
   - base.yaml
-  #- instana-core.enc.yaml
-  #- instana-core.yaml
+  - instana-core.enc.yaml
+  - instana-core.yaml
