@@ -23,5 +23,5 @@ spec:
       substituteFrom:
         # - name: region-config
         #   kind: ConfigMap
-        - name: region-secrets
-          kind: Secret
+        # - name: region-secrets
+        #   kind: Secret
