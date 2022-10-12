@@ -17,6 +17,6 @@ resources:
   - ./datastores/zookeeper-kafka.yaml
   - ./datastores/users-xml.yaml
   - ./datastores/cockroachdb.yaml
-  #- ./core/instana-registry.yaml
- # - ./core/instana-certificate.yaml
+  - ./core/instana-registry.yaml
+  - ./core/instana-certificate.yaml
   #- ./units/instana-registry.enc.yaml
