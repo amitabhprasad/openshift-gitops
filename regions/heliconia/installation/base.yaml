@@ -18,9 +18,9 @@ spec:
     provider: sops
     secretRef:
       name: sops-key
-  postBuild:
-    substitute:
-      substituteFrom:
+  # postBuild:
+  #   substitute:
+  #     substituteFrom:
         # - name: region-config
         #   kind: ConfigMap
         # - name: region-secrets
