@@ -19,4 +19,4 @@ resources:
   - ./datastores/cockroachdb.yaml
   #- ./core/instana-registry.yaml
   - ./core/instana-certificate.yaml
-  #- ./units/instana-registry.yaml
+  - ./units/instana-registry.yaml
