@@ -4,10 +4,9 @@ kind: Kustomization
 metadata:
   name: infrastructure
 resources:
+  - ./pki/instana-issuer.yaml
   - ./datastores/namespace.yaml
-  # - ./datastores/es-instana-admin.enc.yaml
   - ./datastores/elasticsearch.yaml
-  - ./datastores/zookeeper-kafka.yaml
   - ./datastores/kafka.yaml
   - ./datastores/zookeeper-application.yaml
   - ./datastores/clickhouse-application.yaml
@@ -15,8 +14,9 @@ resources:
   - ./datastores/cassandra-profiles.yaml
   - ./datastores/cassandra-metrics.yaml
   - ./datastores/cassandra-state.yaml
+  - ./datastores/zookeeper-kafka.yaml
   - ./datastores/users-xml.yaml
   - ./datastores/cockroachdb.yaml
-  #- ./core/instana-registry.enc.yaml
- # - ./core/instana-tls.enc.yaml
- # - ./units/instana-registry.enc.yaml
+  #- ./core/instana-registry.yaml
+ # - ./core/instana-certificate.yaml
+  #- ./units/instana-registry.enc.yaml

@@ -4,5 +4,8 @@ kind: Kustomization
 metadata:
   name: infrastructure
 resources:
+  #- region-config.yaml
+  #- region-secrets.enc.yaml
   - base.yaml
-  - ./core/instana-core.enc.yaml
+  #- instana-core.enc.yaml
+  #- instana-core.yaml

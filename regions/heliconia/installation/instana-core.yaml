@@ -1,0 +1,128 @@
+---
+apiVersion: instana.io/v1beta2
+kind: Core
+metadata:
+  name: instana-core
+  namespace: instana-core
+spec:
+  agentAcceptorConfig:
+    host: ingress-heliconia.instanatest.rocks
+    port: 30950
+  baseDomain: instanatest.rocks
+  componentConfigs:
+    - name: acceptor
+      replicas: 1
+  datastoreConfigs:
+    # beeInstanaConfig:
+    #   # hosts:                                    # for 3rd-party DB operator
+    #   #   - aggregators.instana-beeinstana        #
+    #   ports:
+    #     - name: tcp
+    #       port: 9998
+    #   # authEnabled: true
+    cassandraConfigs:
+      - hosts:
+          - instana-profiles-cassandra-profiles-service.datastores
+        ports:
+          - name: tcp
+            port: 9042
+        keyspaces:
+          - profiles
+      - hosts:
+          - instana-spans-cassandra-spans-service.datastores
+        ports:
+          - name: tcp
+            port: 9042
+        keyspaces:
+          - spans
+      - hosts:
+          - instana-metrics-cassandra-metrics-service.datastores
+        ports:
+          - name: tcp
+            port: 9042
+        keyspaces:
+          - metrics
+      - hosts:
+          - instana-state-cassandra-state-service.datastores
+        ports:
+          - name: tcp
+            port: 9042
+        keyspaces:
+          - state
+    clickhouseConfigs:      
+      - hosts:
+          - chi-clickhouse-application-local-0-0.datastores
+          - chi-clickhouse-application-local-0-1.datastores
+        ports:
+          - name: tcp
+            port: 9000
+          - name: http
+            port: 8123
+        schemas:
+          - application
+          - logs
+        clusterName: local
+        # authEnabled: true
+    elasticsearchConfig:
+      hosts:
+        - elasticsearch-es-http.datastores
+      ports:
+        - name: tcp
+          port: 9300
+        - name: http
+          port: 9200
+      clusterName: onprem_onprem
+      authEnabled: true
+    kafkaConfig:
+      hosts:
+        #- kafka-headless.datastores      
+        - instana-kafka-bootstrap.kafka-system
+      ports:
+        - name: tcp
+          port: 9092
+        - name: tcp
+          port: 9091
+      # authEnabled: true
+    cockroachdbConfigs:
+      - databases:
+          - butlerdb
+          - tenantdb
+          - sales
+        hosts:
+          - cockroachdb-public.cockroachdb-system
+        ports:
+          - name: tcp
+            port: 26257
+  emailConfig:
+    smtpConfig:
+      from: heliconia@instanatest.rocks
+      host: instanatest.rocks
+      port: 465
+      useSSL: true
+  rawSpansStorageConfig:
+    pvcConfig:
+      resources:
+        requests:
+          storage: 2Gi
+      storageClassName: rook-cephfs
+    # gcloudConfig:
+    #   bucket: "instana-heliconia-spans"
+    #   prefix: "spans"
+    #   storageClass: Standard
+    #   bucketLongTerm: "instana-heliconia-spans-longterm"
+    #   prefixLongTerm: "longterm"
+    #   storageClassLongTerm: Standard
+  # serviceAccountAnnotations:
+  #   "iam.gke.io/gcp-service-account": "instana-heliconia-pods@instana-non-production.iam.gserviceaccount.com"
+  resourceProfile: small
+  # nodeSelector:
+  #   "instana.io/pool": "general"
+  imagePullSecrets:
+    - name: instana-registry
+  featureFlags:
+    - name: feature.logging.enabled
+      enabled: false
+    - name: feature.beeinstana.infra.metrics.enabled
+      enabled: false
+    - name: feature.infra.explore.presentation.enabled
+      enabled: false

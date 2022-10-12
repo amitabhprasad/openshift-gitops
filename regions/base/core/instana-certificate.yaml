@@ -1,0 +1,16 @@
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: instana-certificate
+  namespace: instana-core
+spec:
+  commonName: instana-tls
+  secretName: instana-tls
+  privateKey:
+    algorithm: ECDSA
+    size: 256
+  issuerRef:
+    name: instana-issuer
+    kind: ClusterIssuer
+    group: cert-manager.io
