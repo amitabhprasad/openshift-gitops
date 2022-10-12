@@ -36,7 +36,7 @@ spec:
                 fieldRef:
                   apiVersion: v1
                   fieldPath: metadata.namespace
-          image: containers.instana.io/instana/release/selfhosted/operator:233-1
+          image: containers.instana.io/instana/release/selfhosted/operator:233-0
           imagePullPolicy: IfNotPresent
           name: instana-operator
           ports:
