@@ -5,7 +5,7 @@ metadata:
   name: instana-install
 resources:
   - namespaces.yaml
-  - instana-registry.yaml
+  - instana-registry.enc.yaml
   - certificate_instana-operator_instana-operator-webhook.yaml
   - clusterrole__instana-operator-webhook.yaml
   - clusterrole__instana-operator.yaml

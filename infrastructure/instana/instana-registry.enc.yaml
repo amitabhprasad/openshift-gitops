@@ -1,0 +1,28 @@
+kind: Secret
+apiVersion: v1
+metadata:
+    name: instana-registry
+    namespace: instana-operator
+data:
+    .dockerconfigjson: ENC[AES256_GCM,data:cyon/Ny/0H14xrM1DT5svSwlLkibJottvl4FV+OgzkOGr/Cl8qNqmWuDVAy4yvNthyEQqv5nW4+XDoxcTYeO6h4YUeXRYTMepZ6uqQqfUBlzC8rwr9hfqs5qCj52izNfpojPnxBxXMwntzbhXoFqWZL5LJmkU3eA9wmFgua7ndleSzmlVycjbHUkSQsXzgh4wvtc5vGlJ2wg+1L6q3i1kLTLqYb4eXX9rjpO9n9V+m8=,iv:Sj9tK2dWuhURQ2R3z1GiIUtMpft0Z9VXNUlpR53dVoE=,tag:hkMeUf4PcXsX36OUqPZ8aw==,type:str]
+type: kubernetes.io/dockerconfigjson
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1lljfmj6na8vlgnm9tqwscqaqvm5xndnux4ycyrtvn70d7r3l6d9svu3uqn
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBGeFkwMm5IbUZYcWZJd3pi
+            S0RNcW5iRFMvR3VlWEJXbFMzL2Z6OEt6VHgwCmVtRjJXQWpqRnZCL2prODU3ZDRS
+            MStveTNZWUFYMzlpbmxBOXFySXIzYVEKLS0tIHN4clo5UW1CNFVwVkNCemVMSE5h
+            dmFGbzV3Q3liWEpmbjl2SkMyOWNTNUEK7Lu3bAYC75ro1KLtt0ETmzvDmDnUSr6O
+            +xjdNCl/Sya1FHwqY21ztyZhtHT8dUP2aoHcBFzIwm0pZpw+yDitHA==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2022-10-12T16:14:51Z"
+    mac: ENC[AES256_GCM,data:NS8qZOOmmzep2pyvg33frZ0MI6V+ShqaNp+XNPIeqn1sWyA/V1CPzTiSh5ZXEPBWQHOhUH43RS8Gf1UXdHEMuuMlwCChyCQGBeUk5C9wcdP+nFs/yOKs+mOioRNTjrv6LuKZLpf0xTJxR8LOlqPAsROyvJGSSbhb9cPEsoI4hC0=,iv:Q0BwHBzcF17sXSJhbnyskEPvJ4ckrFH9uitj70F2Gio=,tag:qYb3Q77oT8rAuYbTx7BRjA==,type:str]
+    pgp: []
+    encrypted_regex: ^(data|stringData)$
+    version: 3.7.3
