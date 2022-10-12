@@ -21,7 +21,7 @@ spec:
   postBuild:
     substitute:
       substituteFrom:
-        - name: region-config
-          kind: ConfigMap
+        # - name: region-config
+        #   kind: ConfigMap
         - name: region-secrets
           kind: Secret
