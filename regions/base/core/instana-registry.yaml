@@ -7,13 +7,4 @@ metadata:
   namespace: instana-core
 stringData: 
   .dockerconfigjson: |
-    {
-      "auths": {
-        "https://containers.instana.io": {
-          "username": "${registryUsername}",
-          "password": "${registryPassword}",
-          "email": "any@notused.com",
-          "auth":"${registryAuth}"
-        }
-      }
-    }
+    {"auths": {"https://containers.instana.io": {"username": "${registryUsername}", "password": "${registryPassword}","email": "any@notused.com","auth":"${registryAuth}"}}}
