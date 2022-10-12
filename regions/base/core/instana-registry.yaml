@@ -5,7 +5,7 @@ metadata:
   name: instana-registry
   namespace: instana-core
 type: Opaque
-stringData:
+data:
     registryConfiguration: ${registryConfiguration}
 # stringData: 
 #   .dockerconfigjson: |
