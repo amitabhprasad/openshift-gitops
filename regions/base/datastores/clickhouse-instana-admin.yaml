@@ -1,0 +1,9 @@
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: clickhouse-instana-admin
+  namespace: datastores
+type: Opaque
+stringData:
+  password: ${datastorePassword}

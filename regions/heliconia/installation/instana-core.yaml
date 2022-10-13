@@ -95,10 +95,12 @@ spec:
             port: 26258
   emailConfig:
     smtpConfig:
-      from: heliconia@instanatest.rocks
-      host: instanatest.rocks
+      from: test@example.com
+      host: example.rocks
       port: 465
-      useSSL: true
+      useSSL: false
+  imageConfig:
+    registry: containers.instana.io
   rawSpansStorageConfig:
     pvcConfig:
       resources:

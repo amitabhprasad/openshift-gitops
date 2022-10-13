@@ -1,0 +1,11 @@
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: cassandra-instana-admin
+  namespace: datastores
+type: kubernetes.io/basic-auth
+stringData:
+  username: instana
+  password: ${datastorePassword}
+  roles: superuser
