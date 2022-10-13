@@ -69,7 +69,9 @@ spec:
       ports:
         - name: http
           port: 9200
-      clusterName: onprem_onprem
+        - name: tcp
+          port: 9300
+      #clusterName: onprem_onprem
       #authEnabled: true
     kafkaConfig:
       hosts:
@@ -78,8 +80,6 @@ spec:
       ports:
         - name: tcp
           port: 9092
-        - name: tcp
-          port: 9091
       # authEnabled: true
     cockroachdbConfigs:
       - databases:
@@ -91,8 +91,6 @@ spec:
         ports:
           - name: tcp
             port: 26257
-          - name: tcp
-            port: 26258
   emailConfig:
     smtpConfig:
       from: test@example.com
