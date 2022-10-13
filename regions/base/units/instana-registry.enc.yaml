@@ -2,7 +2,7 @@ kind: Secret
 apiVersion: v1
 metadata:
     name: instana-registry
-    namespace: instana-core
+    namespace: instana-units
     labels:
         foo: bar
 data:
