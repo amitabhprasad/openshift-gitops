@@ -1,0 +1,43 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: spans-volume-claim
+  namespace: instana-core
+  labels:
+    app.kubernetes.io/component: appdata-writer
+    app.kubernetes.io/name: instana
+    app.kubernetes.io/part-of: core
+    instana.io/group: service
+  finalizers:
+    - kubernetes.io/pvc-protection
+  selfLink: /api/v1/namespaces/instana-core/persistentvolumeclaims/spans-volume-claim
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 2Gi
+  storageClassName: rook-cephfs
+  volumeMode: Filesystem
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: appdata-writer
+  namespace: instana-core
+  labels:
+    app.kubernetes.io/component: appdata-writer
+    app.kubernetes.io/name: instana
+    app.kubernetes.io/part-of: core
+    instana.io/group: service
+  finalizers:
+    - kubernetes.io/pvc-protection
+  selfLink: /api/v1/namespaces/instana-core/persistentvolumeclaims/appdata-writer
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 2Gi
+  storageClassName: rook-cephfs
+  volumeMode: Filesystem

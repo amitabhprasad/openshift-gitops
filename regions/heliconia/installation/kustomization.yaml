@@ -9,3 +9,4 @@ resources:
   - base.yaml
   - instana-core.enc.yaml
   - instana-core.yaml
+  - pvc.yaml
