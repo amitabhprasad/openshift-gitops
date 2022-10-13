@@ -18,6 +18,6 @@ resources:
   - ./datastores/users-xml.yaml
   - ./datastores/cockroachdb.yaml
   - ./core/instana-registry.enc.yaml
-  #- ./core/instana-certificate.yaml
-  - ./core/tls.enc.yaml
+  - ./core/instana-certificate.yaml
+  #- ./core/tls.enc.yaml
   - ./units/instana-registry.enc.yaml

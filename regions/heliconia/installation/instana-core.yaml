@@ -6,9 +6,10 @@ metadata:
   namespace: instana-core
 spec:
   agentAcceptorConfig:
-    host: agent.apps.dimes.cp.fyre.ibm.com
+    host: agent.apps.aiops-cluster-svllab-003.cp.fyre.ibm.com
     port: 443
-  baseDomain: apps.dimes.cp.fyre.ibm.com
+  #baseDomain: apps.dimes.cp.fyre.ibm.com
+  baseDomain: apps.aiops-cluster-svllab-003.cp.fyre.ibm.com
   componentConfigs:
     - name: acceptor
       replicas: 1
