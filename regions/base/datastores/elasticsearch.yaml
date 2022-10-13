@@ -9,10 +9,10 @@ spec:
   # auth:
   #   fileRealm:
   #     - secretName: es-instana-admin
-  # http:
-  #   tls:
-  #     selfSignedCertificate:
-  #       disabled: true
+  http:
+    tls:
+      selfSignedCertificate:
+        disabled: true
   nodeSets:
     - name: masters
       count: 1
