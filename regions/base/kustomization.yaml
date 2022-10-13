@@ -20,4 +20,4 @@ resources:
   - ./core/instana-registry.enc.yaml
   #- ./core/instana-certificate.yaml
   - ./core/tls.enc.yaml
-  - ./units/instana-registry.yaml
+  - ./units/instana-registry.enc.yaml
