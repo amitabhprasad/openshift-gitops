@@ -76,7 +76,7 @@ spec:
     kafkaConfig:
       hosts:
         #- kafka-headless.datastores      
-        - instana-kafka-bootstrap.kafka-system
+        - kafka-kafka-bootstrap.kafka-system
       ports:
         - name: tcp
           port: 9092
