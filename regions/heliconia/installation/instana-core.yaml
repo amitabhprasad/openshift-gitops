@@ -70,7 +70,7 @@ spec:
         - name: http
           port: 9200
       clusterName: onprem_onprem
-      authEnabled: true
+      #authEnabled: true
     kafkaConfig:
       hosts:
         #- kafka-headless.datastores      
